@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd
+           http://www.springframework.org/schema/aop/spring-aop.xsd
+           http://www.springframework.org/schema/context">
+<!-- 配置细节 -->
+<!-- bean如果没有指定ID，会生成默认ID，形式为“类名#0”，0是计数 -->
+<bean id="person" class="com.imooc.hello.spring_demo1.Person">
+<!--     配置构造函数，按照配置函数从左到右的顺序，ref标签表示参数为指定id的bean，value标签表示参数值 -->
+    <constructor-arg ref="region-a"></constructor-arg>
+    <constructor-arg value="a funny man"></constructor-arg>
+<!--    配置属性，name对应属性名，value对应属性值，属性中也可以右ref标签，跟构造函数是一样的意思
+        需要注意的是配置属性要求该属性必须右getter方法和setter方法-->
+    <property name="name" value="liming"></property>
+    <property name="age" value="19"></property>
+</bean>
+
+ 
+
+<bean id="region-a" class="com.imooc.hello.spring_demo1.Region">
+
+    <property name="province" value="beijing"></property>
+
+    <property name="city" value="haidian"></property>
+
+</bean>
+
+</beans>
